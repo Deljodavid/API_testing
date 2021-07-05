@@ -1,0 +1,19 @@
+{
+  "name": "study",
+  "version": "1.0.0",
+  "description": "this is my first test",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test/test1.js --timeout 5000",
+    "account-test": "./node_modules/.bin/mocha ./test/account.js --timeout 3000 --reporter mochawesome"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
+    "chai-json-schema": "^1.5.1",
+    "mocha": "^8.4.0",
+    "mochawesome": "^6.2.2"
+  }
+}
