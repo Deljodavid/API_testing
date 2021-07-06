@@ -1,16 +1,18 @@
 const { expect } = require('chai');
+const addContext = require('mochawesome/addContext');
 let chai = require('chai');
 let chaiHttp = require('chai-http');
 let data = require('./data');
 chai.use(chaiHttp);
+
 
 var url = data.url;
 var userdata = data.userdata();
 var userID;
 var token;
 
-describe('User actions',()=>{
-    it('Register the user',(done)=>{
+describe('User actions',function(){
+    it('Register the user',function(done){
 
         chai.request(url)
         .post('/Account/v1/User')
@@ -20,6 +22,7 @@ describe('User actions',()=>{
             expect(res.body.username).to.equal(userdata.userName);
             console.log(res.body);
             userID = res.body.userID;
+            addContext(this,JSON.stringify(res.body));
             done();
             if(err){
                 done(err);

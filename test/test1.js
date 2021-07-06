@@ -45,12 +45,12 @@ describe('/GET user data', () => {
     it('ait should GET the user data', (done) => {
     
         myPromise(pagenum).then((res,e)=>{
-            console.log(res.body);
-            expect(res.body.data.email).to.equal('janet.weaver@reqres.in');
-            done(); 
             if(e){
                 done(e);
             }
+            console.log(res.body);
+            expect(res.body.data.email).to.equal('janet.weaver@reqres.in');
+            done(); 
         }).catch(function(err){
             done(err);
         })
@@ -63,18 +63,7 @@ describe('/GET user data', () => {
 
 
 function myPromise(pagenum){
-    return new Promise((resolve, reject) => {
         return chai.request('https://reqres.in')
-           .get('/api/users/'+pagenum)
-           .end((err, res) => {
-                  if(err){
-                    reject(err);
-                  }
-                  else
-                  {
-                    resolve(res);
-                  }
-           });
-});
+           .get('/api/users/'+pagenum);
 
 };
