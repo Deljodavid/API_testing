@@ -57,8 +57,8 @@ describe('/GET user data', () => {
            
         
     });
-    
-    it('ait should GET the user data', (done) => {
+
+    it('ait should GET the user data second time 222', (done) => {
     
         myPromise(pagenum).then((res,e)=>{
             if(e){
